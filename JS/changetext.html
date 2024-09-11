@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>change heading tag</title>
+
+<script type="text/javascript">
+
+  function doAction(){
+  let h=document.getElementById('h').innerHTML=" "+"good morning";
+  let b=document.getElementById('b');
+
+  b.style.backgroundColor='red';
+} 
+
+</script>
+</head>
+<body id='b' onload="doAction()">
+
+<input type="button" name='b' value='click me' onclick="doAction()">
+<h1 id='h'>hello</h1>
+</body>
+</html>

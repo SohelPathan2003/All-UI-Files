@@ -1,0 +1,72 @@
+*{
+
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+/* .box{
+
+
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    position: relative;
+    animation-name: anni;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+} */
+
+
+ input[type=submit]{
+    margin-top: 50px;
+    width: 50%;
+    height: 50px;
+     background-color: red;
+     margin-left: 200px;
+     margin-top:200px;
+}
+
+input[type=submit]:hover{
+transform:rotate(60deg);
+transition: all 0.5s linear;
+background-color: burlywood;
+}
+
+@keyframes anni{
+
+
+    0%{
+
+        left: 0;
+        top: 0;
+    }
+
+    25%{
+
+        left:200px;
+        top:0;
+        border-radius: 20%;
+    }
+    50%{
+        left:200px;
+        top:200px;
+        border-radius: 40%;
+    }
+    75%{
+
+        left:0;
+        top:200px;
+        border-radius: 60%;
+
+    }
+
+
+    100%{
+
+        left:0;
+        top:0;
+        border-radius: 80%;
+    }
+    
+} 

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Name Validations</title>
+
+<script type="text/javascript">
+
+
+   function checkvalidity(str){
+        
+       let h=document.getElementById('h');
+    
+
+   for(let i=0;i<str.length;i++){
+
+      if(str.charCodeAt(i)>47 && str.charCodeAt(i)<=57){
+           h.innerHTML=" "+"invalid username";
+         }else{
+            h.innerHTML=" ";
+
+	}
+    }
+           
+
+}
+
+</script>
+</head>
+<body>
+
+<input type="text" name="name" value="" onkeyup="checkvalidity(this.value)">
+
+<h1 id="h"></h1>
+
+</body>
+</html>

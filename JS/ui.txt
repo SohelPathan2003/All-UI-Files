@@ -1,0 +1,89 @@
+<div class="col-9">
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane active fade show mx-5" id="v-pills-home"
+						role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active" id="pills-home-tab"
+									data-toggle="pill" data-target="#pills-home" type="button"
+									role="tab" aria-controls="pills-home" aria-selected="true">Add
+									vendor</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="pills-profile-tab"
+									data-toggle="pill" data-target="#pills-profile" type="button"
+									role="tab" aria-controls="pills-profile" aria-selected="false">View
+									vendor</button>
+							</li>
+						</ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active pt-3" id="pills-home"
+								role="tabpanel" aria-labelledby="pills-home-tab">
+								<form action="AddNewvendor" method="POST">
+									<input type="text" class="form-control" name="vendorname"
+										id="exampleFormControlInput1" value=''
+										placeholder="Enter vendor" onkeyup="isValidvendor(this.value)">
+									<small id="small"></small> <input type="submit"
+										class="form-control mt-4 text-white bg-primary" id="vendorbtn"
+										value='Submit'>
+								</form>
+							</div>
+
+
+
+							<div class="tab-pane fade" id="pills-profile"
+								role="tabpanel" aria-labelledby="pills-profile-tab">
+								<div class="searchcontent">
+								<input type="text" value="" name="searchvendor" onkeyup="searchvendor(this.value)" placeholder="Search Vender">
+								</div>
+								
+								  <%@ page import= "java.util.*"%>
+                               <%@ page import="distributor.service.*" %>
+                               <%@ page import="distributor.model.*" %>
+                               <%
+             
+                                VendorServices getvendorlist=new VendorServices();
+                                List <AddNewVendorModel>vendorlist=getvendorlist.getAllVendorList();
+                                int count=0;
+                                %>
+                                <div id="vendortable">
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">VendorID</th>
+											<th scope="col">Vendor Name</th>
+											<th scope="col">Delete</th>
+											<th scope="col">Update</th>
+										</tr>
+									</thead>
+									<tbody>
+                                <% 
+                                if(vendorlist.size()>0){
+                            
+									for(AddNewVendorModel model:vendorlist){
+										count++;
+									
+									%>
+										<tr>
+										
+											<th scope="row"><%=count%></th>
+											<td><%=model.getVendorName() %></td>
+											<td><a href='DeleteVendor?vendorid=<%=model.getVendorId() %>'>Delete</a></td>
+											<td><a href='DeleteVendor?vendorid=<%=model.getVendorId() %>'>Update</a></td>
+										</tr>
+										<%
+									}
+										%>
+									</tbody>
+								</table>
+            			<% 
+                                }
+            			%>
+							</div>	
+								
+								
+								
+								</div>
+						</div>
+					</div>
